@@ -16,7 +16,7 @@ function App() {
   const selectedPlace = useRef();
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [availablePlaces, setAvailablePlaces] = useState([]);
-  const [pickedPlaces, setPickedPlaces] = useState([]);
+  const [pickedPlaces, setPickedPlaces] = useState(storedPlaces);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -92,7 +92,7 @@ function App() {
         />
         <Places
           title="Available Places"
-          places={AVAILABLE_PLACES}
+          places={availablePlaces}
           fallbackText="Sorting places by distance..."
           onSelectPlace={handleSelectPlace}
         />
